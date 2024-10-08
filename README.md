@@ -25,9 +25,8 @@ You can either print and assemble the spacers separately from the Gridfinity bas
 
 ## Advanced options
 
-- Align the base plate on the spacer plate.
-- Set alignment offsets to the edge of the spacer plate.
-- Define the thickness of the spacer plate.
+- Set symetric or asymetric spacings.
+- Define the height of the spacer plate.
 - Define the shape of the corners.
 
 ## Tips
@@ -35,7 +34,7 @@ You can either print and assemble the spacers separately from the Gridfinity bas
 Tips for the generator:
 
 - If you print the spacer plate separately and the gridfinity base plate does not fit into the spacer plate, use the “Spacer tolerance” option and increase its value.
-- To test the tolerances, you can print a very thin version of the spacer plate by setting the “Spacer thickness” to one or two print layer heights (e.g. 0.2 mm).
+- To test the tolerances, you can print a very thin version of the spacer plate by setting the “Spacer height” to one or two print layer heights (e.g. 0.2 mm).
 
 Tips for the slicer:
 
@@ -44,7 +43,7 @@ Tips for the slicer:
 
 Tips to achive this in BambuStudio:
 
-- Merging spacers and gridfinity baseplate:
+- Merging symetric spacers and gridfinity baseplate:
   - Select "File/Import/STL"
   - Select the spacer.stl and the baseplate.stl at once in the file dialog and import both files
   - Select "Yes" to confirm the merge of both files to one object.
