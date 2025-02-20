@@ -95,8 +95,11 @@ base_plate_corners_rounded=true;
 // Rounded spacer plate corners
 spacer_plate_corners_rounded=true;
 
+// Rounded spacer plate corners
+spacer_plate_corners_diameter=8; // [1:100]
 
-/* [Advanced Spacer Options] */
+
+/* [Cutout placement] */
 
 // Width alignment of the grid
 width_alignment="center"; // [left, center, right]
@@ -110,6 +113,9 @@ length_alignment="center"; // [front, center, back]
 // Length offset in mm (when not centered)
 length_offset=1;
 
+
+/* [Advanced Spacer Options] */
+
 // Spacer inner tollerance in mm
 spacer_tolerance=0.0; // [0:0.1:2]
 
@@ -121,8 +127,8 @@ $fn=100; // [15:200]
 
 /* [Hidden] */
 
-calculated_spacer_width=available_space_width - (spacer_plate_corners_rounded==true ? gridfinity_corner_diameter : 0);
-calculated_spacer_length=available_space_length - (spacer_plate_corners_rounded==true ? gridfinity_corner_diameter : 0);
+calculated_spacer_width=available_space_width - (spacer_plate_corners_rounded==true ? spacer_plate_corners_diameter : 0);
+calculated_spacer_length=available_space_length - (spacer_plate_corners_rounded==true ? spacer_plate_corners_diameter : 0);
 
 required_grid_space_width=(grid_segments_width * gridfinity_size) + (2 * spacer_tolerance) - (base_plate_corners_rounded==true ? gridfinity_corner_diameter : 0);
 required_grid_space_length=(grid_segments_length * gridfinity_size) + (2 * spacer_tolerance) - (base_plate_corners_rounded==true ? gridfinity_corner_diameter : 0);
@@ -136,7 +142,7 @@ final_length_shift=length_alignment=="front" ? length_shift_offset * -1 : length
 linear_extrude(spacer_height) {
     difference() {
         minkowski() {
-            if (spacer_plate_corners_rounded) circle(d=gridfinity_corner_diameter);
+            if (spacer_plate_corners_rounded) circle(d=spacer_plate_corners_diameter);
             square([calculated_spacer_width, calculated_spacer_length], true);
         }
         translate([final_width_shift, final_length_shift, 0]) {
